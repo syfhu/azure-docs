@@ -1,17 +1,13 @@
 ---
 title: Provision a simulated TPM device to Azure IoT Hub using Node.js | Microsoft Docs
 description: Azure Quickstart - Create and provision a simulated TPM device using Node.js device SDK for Azure IoT Hub Device Provisioning Service
-services: iot-dps 
-keywords: 
-author: msebolt
-ms.author: v-masebo
-ms.date: 03/01/2018
-ms.topic: hero-article
+author: bryanla
+ms.author: bryanla
+ms.date: 04/09/2018
+ms.topic: quickstart
 ms.service: iot-dps
-
-documentationcenter: ''
+services: iot-dps 
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
 ---
 
@@ -21,8 +17,9 @@ ms.custom: mvc
 
 These steps show how to create a simulated device on your development machine running Windows OS, run the Windows TPM simulator as the [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) of the device, and use the code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
 
-Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
+If you're unfamiliar with the process of auto-provisioning, be sure to also review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
 
+[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
 
 ## Prepare the environment 
 
@@ -59,7 +56,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     ```
 
     > [!NOTE]
-    > There are some known issues to installing the above packages. To resolve these, run `npm install --global --production windows-build-tools` using a command prompt in **Run as administrator** mode, run `SET VCTargetsPath=C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140` after replacing the path with your installed version, and then re-run the above installation commands.
+    > There are some known issues to installing the above packages. To resolve these issues, run `npm install --global --production windows-build-tools` using a command prompt in **Run as administrator** mode, run `SET VCTargetsPath=C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140` after replacing the path with your installed version, and then rerun the above installation commands.
     >
 
 1. Install the following packages containing the components used during registration:
@@ -78,7 +75,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     > The samples below use the `azure-iot-provisioning-device-http` and `azure-iot-device-mqtt` transports.
     > 
 
-    You can install all of these at once by running the following command at your command prompt in the **registereddevice** folder:
+    You can install all of these packages at once by running the following command at your command prompt in the **registerdevice** folder:
 
         ```cmd/sh
         npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device
